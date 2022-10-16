@@ -9,7 +9,7 @@ name: Build Terraria
 
 on:
   push:
-    tags: [ 'terraria-*' ]
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
 
