@@ -1,4 +1,4 @@
-FROM alpine:3.14.2 AS base
+FROM alpine:3.16 AS base
 
 RUN apk add --update-cache unzip
 
@@ -25,8 +25,8 @@ COPY bootstrap.sh /terraria-server
 
 RUN groupadd terraria -g 1000 
 RUN useradd terraria -m -u 1000 -g 1000
-RUN  apt-get update -y
-RUN apt-get install -y pcregrep
+RUN apk update && apk upgrade -y
+RUN apk add -y pcretools
 RUN rm -rf /var/lib/apt/lists* /tmp* 
 
 WORKDIR /home/terraria/server
