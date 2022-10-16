@@ -1,6 +1,7 @@
 FROM alpine:3.16 AS base
 
-RUN apk add --update-cache unzip
+RUN apk update
+RUN apk add --update-cache unzip pcre-tools
 
 ENV DL_VERSION=1445
 ENV DL_FILE=terraria-server-$DL_VERSION.zip
@@ -25,7 +26,6 @@ COPY bootstrap.sh /terraria-server
 
 RUN groupadd terraria -g 1000 
 RUN useradd terraria -m -u 1000 -g 1000
-RUN apk add --update-cache pcre-tools
 RUN apk upgrade
 RUN rm -rf /var/lib/apt/lists* /tmp* 
 
