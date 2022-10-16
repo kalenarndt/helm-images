@@ -23,10 +23,13 @@ EXPOSE 7777
 COPY --from=base /terraria-server /terraria-server
 COPY bootstrap.sh /terraria-server
 
-RUN groupadd terraria -g 1000 
-RUN useradd terraria -m -u 1000 -g 1000
-RUN apk add -y pcretools
-RUN rm -rf /var/lib/apt/lists* /tmp* 
+RUN groupadd terraria -g 1000 && \
+useradd terraria -m -u 1000 -g 1000 && \
+apk add pcre-tools && \
+apk upgrade && \
+rm -rf /var/lib/apt/lists* /tmp* && \
+mkdir /terraria-server/tmp && \
+chown terraria:terraria /terraria-server/tmp
 
 WORKDIR /home/terraria/server
 
