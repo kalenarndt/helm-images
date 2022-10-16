@@ -25,7 +25,7 @@ COPY bootstrap.sh /terraria-server
 
 RUN groupadd terraria -g 1000 
 RUN useradd terraria -m -u 1000 -g 1000
-RUN apk add pcre-tools
+RUN apk add --update-cache pcre-tools
 RUN apk upgrade
 RUN rm -rf /var/lib/apt/lists* /tmp* 
 
