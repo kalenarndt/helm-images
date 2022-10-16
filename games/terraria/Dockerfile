@@ -28,8 +28,6 @@ RUN groupadd terraria -g 1000 && \
   apt-get update -y && \
   apt-get install -y pcregrep && \
   rm -rf /var/lib/apt/lists* /tmp* && \
-  mkdir /terraria-server/tmp && \
-  chown terraria:terraria /terraria-server/tmp
 
 WORKDIR /home/terraria/server
 
