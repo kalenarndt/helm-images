@@ -23,11 +23,11 @@ EXPOSE 7777
 COPY --from=base /terraria-server /terraria-server
 COPY bootstrap.sh /terraria-server
 
-RUN groupadd terraria -g 1000 && \
-  useradd terraria -m -u 1000 -g 1000 && \
-  apt-get update -y && \
-  apt-get install -y pcregrep && \
-  rm -rf /var/lib/apt/lists* /tmp* && \
+RUN groupadd terraria -g 1000 
+RUN useradd terraria -m -u 1000 -g 1000
+RUN  apt-get update -y
+RUN apt-get install -y pcregrep
+RUN rm -rf /var/lib/apt/lists* /tmp* 
 
 WORKDIR /home/terraria/server
 
